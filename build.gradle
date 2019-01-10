@@ -26,16 +26,17 @@ dependencies {
 
 	// spring
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+	compile 'org.springframework.boot:spring-boot-devtools'
 
 	// database settings
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	runtimeOnly 'mysql:mysql-connector-java'
 
 	// Lombok
-	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor('org.projectlombok:lombok')
+	compileOnly 'org.projectlombok:lombok'
 
-	// Tests
+	// Testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testCompile group: 'com.h2database', name: 'h2', version: '1.4.197'
 }

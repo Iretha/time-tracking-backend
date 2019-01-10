@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -18,10 +19,10 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-//    @GetMapping("/users")
-//    public List<User> getAllUsers() {
-//        return this.userRepository.findAll();
-//    }
+    @GetMapping("/users")
+    public List<User> getAllUsers() {
+        return this.userRepository.findAll();
+    }
 
     @GetMapping("/users/login/{email}")
     public ResponseEntity<User> login(@PathVariable(value = "email") String email)
@@ -33,7 +34,6 @@ public class UserController {
 
     @PostMapping("/users/logout")
     public ResponseEntity<User> logout(@Valid @RequestBody User user) throws ResourceNotFoundException {
-        //TODO
         return ResponseEntity.ok().body(new User());
     }
 
